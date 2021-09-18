@@ -8,7 +8,7 @@ const categorySelected = ref("");
 
 onMounted(() => {
   localStorage.clear();
-  question_store.fetchQuestions();
+  question_store.fetchCategories();
 });
 
 function selectCategory(category: string) {
@@ -40,8 +40,9 @@ function selectCategory(category: string) {
           "
         >
           <li
-            @click="selectCategory('random')"
-            class="w-56 py-3 px-4 hover:bg-gray-50 cursor-pointer"
+            :class="{ 'text-white bg-dark': categorySelected === '' }"
+            @click="selectCategory('')"
+            class="w-56 py-3 px-4 cursor-pointer"
           >
             Random
           </li>
@@ -49,14 +50,14 @@ function selectCategory(category: string) {
             v-for="i in categories"
             :key="i"
             @click="selectCategory(i)"
-            class="w-56 py-3 px-4 hover:bg-gray-50 cursor-pointer"
+            :class="{ 'text-white bg-dark': categorySelected === i }"
+            class="w-56 py-3 px-4 hover:bg-dark hover:text-white cursor-pointer"
           >
             {{ i }}
           </li>
         </ul>
       </div>
       <button
-        :disabled="categorySelected === ''"
         class="
           bg-dark
           text-primary
@@ -65,8 +66,7 @@ function selectCategory(category: string) {
           px-3
           py-2
           rounded-md
-          disabled:opacity-30
-          disabled:cursor-not-allowed
+          hover:shadow-lg
         "
         @click="$router.push('/main')"
       >

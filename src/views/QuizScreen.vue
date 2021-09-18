@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-const categorySelected = localStorage.getItem("selected-category");
+const categorySelected = localStorage.getItem("selected-category") || "random";
 </script>
 
 <template>

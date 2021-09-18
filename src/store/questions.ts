@@ -11,7 +11,7 @@ export const questionStore = defineStore({
 
   },
   actions: {
-    fetchQuestions() {
+    fetchCategories() {
       fetch("../../db.json")
         .then((response) => response.json())
         .then(
