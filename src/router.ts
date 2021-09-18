@@ -5,9 +5,19 @@ const routes = [
   {
     path: "/",
     beforeEnter(to: any, from: any, next: any) {
-      next("/")
+      next("/home")
     }
-  }
+  },
+  {
+    path: '/home',
+    name: 'home-page',
+    component: () => import("./views/Home.vue")
+  },
+  {
+    path: '/:pathMatch(.*)*',
+    name: 'page-not-found',
+    component: () => import("./views/404.vue")
+  },
 ]
 
 

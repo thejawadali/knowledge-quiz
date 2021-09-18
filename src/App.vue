@@ -1,5 +1,19 @@
 <template>
-  <h3>quiz app</h3>
+  <div
+    class="
+      bg-gradient-to-b
+      from-secondary
+      to-primary
+      h-screen
+      w-full
+      px-20
+      py-10
+    "
+  >
+    <div class="w-full h-full shadow-lg rounded-lg">
+      <router-view />
+    </div>
+  </div>
 </template>
 
 <script lang="ts" setup>
