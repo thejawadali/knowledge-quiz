@@ -11,7 +11,6 @@ export const questionStore = defineStore({
 
   },
   actions: {
-    // fetchQuestions(cb: (success: boolean, obj: any) => any) {
     fetchQuestions() {
       fetch("../../db.json")
         .then((response) => response.json())

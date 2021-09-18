@@ -17,8 +17,11 @@ module.exports = {
     },
   },
   variants: {
+    cursor: ( { after } ) => after( ['disabled'] ),
+    opacity: ( { after } ) => after( ['disabled'] ),
     extend: {
       backgroundColor: ['active'],
+
     },
   },
   plugins: [],

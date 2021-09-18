@@ -1,13 +1,21 @@
 <script lang="ts" setup>
-import { computed, onMounted, ref } from "vue-demi";
+import { computed, onMounted, ref, watch } from "vue-demi";
 import { questionStore } from "../store/questions";
 const question_store = questionStore();
 
 const categories = computed(() => question_store.categories);
+const categorySelected = ref("");
 
 onMounted(() => {
+  localStorage.clear();
   question_store.fetchQuestions();
 });
+
+function selectCategory(category: string) {
+  localStorage.clear();
+  localStorage.setItem("selected-category", category);
+  categorySelected.value = category;
+}
 </script>
 
 
@@ -31,17 +39,24 @@ onMounted(() => {
             overflow-y-scroll
           "
         >
-          <li class="w-56 py-3 px-4 hover:bg-gray-50 cursor-pointer">Random</li>
           <li
+            @click="selectCategory('random')"
             class="w-56 py-3 px-4 hover:bg-gray-50 cursor-pointer"
+          >
+            Random
+          </li>
+          <li
             v-for="i in categories"
             :key="i"
+            @click="selectCategory(i)"
+            class="w-56 py-3 px-4 hover:bg-gray-50 cursor-pointer"
           >
             {{ i }}
           </li>
         </ul>
       </div>
       <button
+        :disabled="categorySelected === ''"
         class="
           bg-dark
           text-primary
@@ -50,12 +65,13 @@ onMounted(() => {
           px-3
           py-2
           rounded-md
-          hover:shadow-lg
+          disabled:opacity-30
+          disabled:cursor-not-allowed
         "
+        @click="$router.push('/main')"
       >
         Start Quiz
       </button>
     </div>
   </div>
 </template>
-<!-- font-family: 'Gluten', cursive; -->

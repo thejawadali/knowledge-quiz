@@ -14,6 +14,11 @@ const routes = [
     component: () => import("./views/Home.vue")
   },
   {
+    path: '/main',
+    name: 'quiz-screen',
+    component: () => import("./views/QuizScreen.vue")
+  },
+  {
     path: '/:pathMatch(.*)*',
     name: 'page-not-found',
     component: () => import("./views/404.vue")
