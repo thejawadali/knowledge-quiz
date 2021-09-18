@@ -7,7 +7,8 @@
       h-screen
       w-full
       px-20
-      py-10
+      md:px-56
+      py-16
     "
   >
     <div class="w-full h-full shadow-lg rounded-lg">
