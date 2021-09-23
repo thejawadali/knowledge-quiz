@@ -26,7 +26,7 @@ function selectCategory(category: string) {
     <div class="h-full w-4/5 flex flex-col items-center justify-evenly">
       <!-- heading -->
       <h1 class="text-7xl font-bold font-gluten text-dark">Quiz</h1>
-      <div v-if="categories.length > 0">
+      <div v-if="categories.length > 0" class="w-96">
         <h1 class="m-1 text-lg text-gray-600 font-semibold">Select Category</h1>
         <ul
           class="
@@ -35,6 +35,7 @@ function selectCategory(category: string) {
             bg-white
             shadow-lg shadow-dark
             rounded-lg
+            w-full
             max-h-96
             overflow-y-scroll
           "
@@ -42,7 +43,7 @@ function selectCategory(category: string) {
           <li
             :class="{ 'text-white bg-dark': categorySelected === '' }"
             @click="selectCategory('')"
-            class="w-56 py-3 px-4 cursor-pointer"
+            class="w-full py-3 px-4 cursor-pointer"
           >
             Random
           </li>
@@ -51,7 +52,14 @@ function selectCategory(category: string) {
             :key="i"
             @click="selectCategory(i)"
             :class="{ 'text-white bg-dark': categorySelected === i }"
-            class="w-56 py-3 px-4 hover:bg-dark hover:text-white cursor-pointer"
+            class="
+              w-full
+              py-3
+              px-4
+              hover:bg-dark
+              hover:text-white
+              cursor-pointer
+            "
           >
             {{ i }}
           </li>

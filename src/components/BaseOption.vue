@@ -35,11 +35,11 @@
           group-hover:text-white group-hover:bg-dark
         "
       >
-        <span>A</span>
+        <slot></slot>
       </div>
     </div>
     <p class="ml-3 text-dark text-sm group-hover:text-white">
-      Lorem ipsum dolor sit amet consectetur elit.
+      <slot name="title"></slot>
     </p>
   </div>
 </template>
