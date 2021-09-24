@@ -4,6 +4,7 @@ import Icons from 'vite-plugin-icons'
 
 // https://vitejs.dev/config/
 export default defineConfig({
+  base: "/quiz/",
   plugins: [vue(),
   Icons()
   ]
