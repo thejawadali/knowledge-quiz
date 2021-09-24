@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import { onMounted, ref } from "vue-demi";
+import { computed, onMounted, ref } from "vue-demi";
 import { questionStore } from "../store/questions";
 import BaseOption from "../components/BaseOption.vue";
 import { random } from "lodash";
@@ -12,6 +12,7 @@ const allQuestions = ref([] as any);
 const askedQuestions = ref([] as string[]);
 const questionsEnded = ref(false);
 const correctAnswers = ref(0);
+const progressValue = ref(0);
 
 function loadQuestion() {
   // only load new question if current question <= 10
@@ -19,6 +20,7 @@ function loadQuestion() {
     questionsEnded.value = true;
     return;
   }
+  // get any random question
   const newQuestion = allQuestions.value[random(0, allQuestions.value.length)];
   // load unique questions
   if (
@@ -28,17 +30,24 @@ function loadQuestion() {
     return;
   }
   currentQuestion.value = newQuestion;
+  // add that question to asked questions so that, that question never occur again
   askedQuestions.value.push(newQuestion._id);
 }
+
 function submitAns(answer: any) {
+  // on every submission, increment progress value
+  progressValue.value += 10;
+  // on every correct answer, increment score
   if (answer.isCorrect) {
     correctAnswers.value++;
   }
+  // wait of 30ms and load next question
   setTimeout(() => {
     loadQuestion();
   }, 30);
 }
 
+// replay
 function playAgain() {
   reloadBrowser();
 }
@@ -54,8 +63,11 @@ onMounted(() => {
 <template>
   <div class="bg-primary h-full w-full rounded-lg overflow-hidden">
     <!-- loader -->
-    <div class="w-full h-3 bg-gray-50">
-      <div class="w-4/5 h-full text-center text-xs text-white bg-dark"></div>
+    <div class="w-full bg-gray-50">
+      <div
+        class="h-3 text-center text-xs text-white bg-dark"
+        :style="{ width: `${progressValue}%` }"
+      />
     </div>
 
     <!-- main -->
