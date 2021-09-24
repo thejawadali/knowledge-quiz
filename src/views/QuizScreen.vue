@@ -101,7 +101,7 @@ onMounted(() => {
             class="my-5"
             @click="submitAns(ans)"
           >
-            <base-option>
+            <base-option :correct="ans.isCorrect">
               {{ optionsTexts[i] }}
               <template #title>{{ ans.answerText }}</template>
             </base-option>

@@ -1,9 +1,15 @@
 <script lang="ts" setup>
+const props = defineProps({
+  correct: {
+    type: Boolean,
+  },
+});
 </script>
 
 
 <template>
   <div
+    :class="[correct ? 'active:bg-green-500' : 'active:bg-red-500']"
     class="
       flex
       items-center
