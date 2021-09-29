@@ -6,7 +6,8 @@
       to-primary
       h-screen
       w-full
-      px-20
+      px-2
+      sm:px-20
       md:px-56
       py-16
     "

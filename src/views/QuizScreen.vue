@@ -71,22 +71,24 @@ onMounted(() => {
     </div>
 
     <!-- main -->
-    <div class="w-full h-full flex justify-center items-center">
-      <div class="w-full my-6 flex flex-col items-center">
+    <div class="w-full h-full flex justify-center py-6 sm:items-center">
+      <div class="w-full sm:my-6 flex flex-col items-center">
         <!-- Counter -->
-        <p class="text-dark font-semibold text-sm font-mono">
+        <p class="text-dark font-normal text-xs sm:text-sm font-mono">
           Questions {{ askedQuestions.length }}/10
         </p>
         <!-- question -->
         <p
           class="
             text-dark
-            font-semibold
-            text-xl text-center
+            font-extrabold
+            text-sm
+            sm:text-xl text-center
             uppercase
             font-mono
-            px-20
-            tracking-wider
+            px-2
+            sm:px-20
+            sm:tracking-wider
             my-3
           "
         >
@@ -98,7 +100,7 @@ onMounted(() => {
           <div
             v-for="(ans, i) in currentQuestion.answers"
             :key="ans"
-            class="my-5"
+            class="my-3 sm:my-5"
             @click="submitAns(ans)"
           >
             <base-option :correct="ans.isCorrect">
@@ -110,6 +112,7 @@ onMounted(() => {
       </div>
     </div>
   </div>
+  <!-- Result -->
   <div
     v-if="questionsEnded"
     class="fixed w-full h-full top-0 left-0 flex items-center justify-center"
@@ -149,7 +152,7 @@ onMounted(() => {
         </div>
 
         <div class="flex justify-end">
-          <div class="p-4">
+          <div class="py-4 sm:px-4">
             <button
               class="
                 px-4

@@ -16,8 +16,10 @@ const props = defineProps({
       bg-white
       cursor-pointer
       p-5
-      w-96
-      h-16
+      w-72
+      sm:w-96
+      h-12
+      sm:h-16
       overflow-hidden
       rounded-xl
       shadow-lg
