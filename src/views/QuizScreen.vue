@@ -160,7 +160,7 @@ onMounted(() => {
                 text-dark
                 hover:bg-primary
               "
-              @click="$router.push('/home')"
+              @click="$router.push('/quiz/home')"
             >
               Go To Home
             </button>

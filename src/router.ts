@@ -3,18 +3,18 @@ import { createRouter, createWebHistory } from "vue-router"
 
 const routes = [
   {
-    path: "/",
+    path: "/quiz",
     beforeEnter(to: any, from: any, next: any) {
-      next("/home")
+      next("/quiz/home")
     }
   },
   {
-    path: '/home',
+    path: '/quiz/home',
     name: 'home-page',
     component: () => import("./views/Home.vue")
   },
   {
-    path: '/main',
+    path: '/quiz/main',
     name: 'quiz-screen',
     component: () => import("./views/QuizScreen.vue")
   },

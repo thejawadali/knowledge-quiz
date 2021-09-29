@@ -76,7 +76,7 @@ function selectCategory(category: string) {
           rounded-md
           hover:shadow-lg
         "
-        @click="$router.push('/main')"
+        @click="$router.push('/quiz/main')"
       >
         Start Quiz
       </button>

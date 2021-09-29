@@ -14,7 +14,7 @@
       <img src="../assets/error-404.png" alt="" />
     </div>
     <button
-      @click="$router.push('/home')"
+      @click="$router.push('/quiz/home')"
       class="mt-10 bg-dark text-white px-3 py-2 rounded-md"
     >
       Back To Home
