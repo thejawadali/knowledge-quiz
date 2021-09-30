@@ -2,7 +2,7 @@
 import { computed, onMounted, ref } from "vue-demi";
 import { questionStore } from "../store/questions";
 import BaseOption from "../components/BaseOption.vue";
-import { random } from "lodash";
+import { random } from "lodash-es";
 import { reloadBrowser } from "../logic/utils";
 
 const question_store = questionStore();
@@ -104,7 +104,7 @@ onMounted(() => {
             @click="submitAns(ans)"
           >
             <base-option :correct="ans.isCorrect">
-              {{ optionsTexts[i] }}
+              {{ optionsTexts[i as number] }}
               <template #title>{{ ans.answerText }}</template>
             </base-option>
           </div>

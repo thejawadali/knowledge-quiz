@@ -1,13 +1,13 @@
-import { createRouter, createWebHistory } from "vue-router"
+import { createRouter, createWebHistory, RouteRecordName, RouteRecordRaw, RouterOptions, _RouteRecordBase } from "vue-router"
 
 
-const routes = [
+const routes: RouteRecordRaw[] = [
   {
     path: "/quiz",
     beforeEnter(to: any, from: any, next: any) {
       next("/quiz/home")
     }
-  },
+  } as any,
   {
     path: '/quiz/home',
     name: 'home-page',
