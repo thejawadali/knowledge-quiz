@@ -1,7 +1,6 @@
 import { uniq } from "lodash-es"
 import { defineStore } from 'pinia'
 
-
 export const questionStore = defineStore({
   id: 'Questions',
   state: () => ({
@@ -12,7 +11,7 @@ export const questionStore = defineStore({
   },
   actions: {
     fetchCategories() {
-      fetch("../../db.json")
+      fetch("../../public/db.json")
         .then((response) => response.json())
         .then(
           (data) =>
@@ -21,7 +20,7 @@ export const questionStore = defineStore({
     },
     fetchQuestions(cb: (obj: any) => any) {
       const category = localStorage.getItem("selected-category") || ''
-      fetch("../../db.json")
+      fetch("../../public/db.json")
         .then((response) => response.json())
         .then(
           (data) => cb(category ? data.questions.filter((ques: any) => ques.category == category) : data.questions)

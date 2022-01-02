@@ -3,6 +3,7 @@
     class="
       bg-gradient-to-b
       from-secondary
+      bg-red-50
       to-primary
       h-screen
       w-full
